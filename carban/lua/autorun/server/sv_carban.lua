@@ -64,7 +64,7 @@ hook.Add("PlayerSay", "CarBanChatCommands", function(sender, text, team)
         table.remove(ChatExplode, 1)
         PlyName = table.concat(ChatExplode, " ")
 
-        if not sender:canVehicleBan() then
+        if not ULib.ucl.query(sender, "ulx_carban") then
             sendClientMessage(sender, "You don't have permission for this command!")
             return ""
         end
@@ -85,11 +85,18 @@ hook.Add("PlayerSay", "CarBanChatCommands", function(sender, text, team)
         PlyName = table.concat(ChatExplode, " ")
 
         local Ply = findPlayerByName(PlyName)
-
-        if not ULib.ucl.query(sender, "ulx_uncarban") then
-            sendClientMessage(sender, "You don't have permission for this command!")
-            return ""
-        end
+		
+		if ulx then
+			if not ULib.ucl.query(sender, "ulx_uncarban") then
+				sendClientMessage(sender, "You don't have permission for this command!")
+				return ""
+			end
+		else
+			if not sender:IsAdmin() then
+				sendClientMessage(sender, "You don't have permission for this command!")
+				return ""
+			end
+		end
 
         if Ply and IsValid(Ply) and Ply:IsPlayer() then
             if not Ply:isVehicleBanned() then
