@@ -63,11 +63,18 @@ hook.Add("PlayerSay", "CarBanChatCommands", function(sender, text, team)
     if string.lower(ChatExplode[1]) == "!carban" then
         table.remove(ChatExplode, 1)
         PlyName = table.concat(ChatExplode, " ")
-
-        if not ULib.ucl.query(sender, "ulx_carban") then
-            sendClientMessage(sender, "You don't have permission for this command!")
-            return ""
-        end
+		
+		if ulx then
+			if not ULib.ucl.query(sender, "ulx_carban") then
+				sendClientMessage(sender, "You don't have permission for this command!")
+				return ""
+			end
+		else
+			if not sender:IsAdmin() then
+				sendClientMessage(sender, "You don't have permission for this command!")
+				return ""
+			end
+		end
 
         local Ply = findPlayerByName(PlyName)
 
