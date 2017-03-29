@@ -3,10 +3,10 @@
 
 # Features
 
-Ban/Unban players from using vehicles on your server using chat commands.
-ULX Support
-Bans persisted upon rejoining server
-Lua API
+##Ban/Unban players from using vehicles on your server using chat commands.
+##ULX Support
+##Bans persisted upon rejoining server
+##Lua API
 
 
 # API
