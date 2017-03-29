@@ -13,8 +13,8 @@
 
 * Ban a player from using vehicles: Player:vehicleBan()
 * Unban a player from using vehicles: Player:vehicleUnban()
-* Returns a boolean determining if a player can carban or not Player:canVehicleBan()
-* Returns a boolean determining if a player is banned from vehicles or not Player:isVehicleBanned()
+* Returns a boolean determining if a player can carban or not:  Player:canVehicleBan()
+* Returns a boolean determining if a player is banned from vehicles or not:  Player:isVehicleBanned()
 
 
 # ULX Permissions
